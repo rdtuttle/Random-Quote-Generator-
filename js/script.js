@@ -10,7 +10,13 @@ project 1 - A Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
-
+const quotes = [
+  {“The story you tell yourself is largely the story you are living”, "Terrance Mckenna"},
+  {“We're all just walking each other home.”, "Ram Dass"},
+  {“Silence is a source of great strength”, "Lao Tzu"},
+  {"You are not a drop in the ocean. You are the entire ocean in a drop", "Rumi"},
+  {"Knowledge is limited", "Albert Einstein"}
+] ;
 
 
 /***
