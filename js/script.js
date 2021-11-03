@@ -29,7 +29,20 @@ const quotes = [
 /***
  * `getRandomQuote` function
 ***/
+function getRandomQuote() {
+  // 1. Create a variable that generates a random number
+  // between zero and the last index in the `quotes` array
+  const random = Math.floor((Math.random() * quotes.length) );
+  // 2. Use the random number variable and bracket notation 
+  // to grab a random object from the `quotes` array, and 
+  // store it in a variable
+  let randomQuote = quotes[random];
+  // 3. Return the variable storing the random quote object
+  console.log(randomQuote);
+  return randomQuote
+}
 
+getRandomQuote();
 
 
 /***
