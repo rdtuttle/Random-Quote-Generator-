@@ -24,37 +24,36 @@ const quotes = [
   {quote: "Knowledge is limited.", 
    source: "Albert Einstein"}
 ]; 
-
-
-/***
- * `getRandomQuote` function
-***/
+/**
+ Creating a getRandomQuote function to retrieve a quote at random from the array of quotes
+ */
 function getRandomQuote() {
-  // 1. Create a variable that generates a random number
-  // between zero and the last index in the `quotes` array
-  const random = Math.floor((Math.random() * quotes.length) );
-  // 2. Use the random number variable and bracket notation 
-  // to grab a random object from the `quotes` array, and 
-  // store it in a variable
+  const random = Math.floor(Math.random() * quotes.length);
   let randomQuote = quotes[random];
-  // 3. Return the variable storing the random quote object
-  console.log(randomQuote);
   return randomQuote
-}
+};
 
-getRandomQuote();
+/**
+ Creating a function to join quotes, sources, citation, and year to the HTML file
+ */
+function printQuote() {
+  
+  const randomQ = getRandomQuote();
+  let html = '<p class="quote">' + randomQ.quote + '</p>' + '<p class="source">' + randomQ.source + '</p>';
+  if (randomQ.citation) {
+      html += ' <span class="citation">' + randomQ.citation + '</span>';
+  };
+ 
+  if (randomQ.year) {
+    html += ' <span class="year">' + randomQ.year + '</span>';
+  };
+    html += '</p>';
+  
+    document.getElementById('quote-box').innerHTML = html; 
+  
+};
 
 
-/***
- * `printQuote` function
-***/
-
-
-
-
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
-***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
