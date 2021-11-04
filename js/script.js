@@ -20,7 +20,8 @@ const quotes = [
    source: "Lao Tzu",
    year: "4th century B.C"},
   {quote: "You are not a drop in the ocean. You are the entire ocean in a drop", 
-   source: "Rumi"},
+   source: "Rumi",
+   tag: "Sufism"},
   {quote: "Knowledge is limited.", 
    source: "Albert Einstein"}
 ]; 
@@ -39,7 +40,9 @@ function getRandomQuote() {
 function printQuote() {
   
   const randomQ = getRandomQuote();
-  let html = '<p class="quote">' + randomQ.quote + '</p>' + '<p class="source">' + randomQ.source + '</p>';
+
+  
+  let html = '<p class="quote">' + randomQ.quote + '</p>' + '<p class="source">' + randomQ.source;
   if (randomQ.citation) {
       html += ' <span class="citation">' + randomQ.citation + '</span>';
   };
@@ -47,12 +50,36 @@ function printQuote() {
   if (randomQ.year) {
     html += ' <span class="year">' + randomQ.year + '</span>';
   };
+  
+  if (randomQ.tag) {
+    html += ' <span class="year">' + randomQ.tag + '</span>';
+  };
     html += '</p>';
   
     document.getElementById('quote-box').innerHTML = html; 
-  
-};
+  };
 
+/**
+ Function for generating random background color
+ */
+function random_bg_color() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+  console.log(bgColor);
+  document.body.style.background = bgColor;
+  };
+
+    /**
+ Function for generating a new quote in 9 second intervals
+ */
+setInterval(() => {
+      printQuote();
+      random_bg_color();
+      }, 15000);
+
+document.getElementById('load-quote').addEventListener("click", random_bg_color, false);
 
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
