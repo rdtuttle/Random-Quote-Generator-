@@ -1,2 +1,2 @@
 # Random Quote Generator 
- a random quote generator
+ Team Treehouse Project 1
